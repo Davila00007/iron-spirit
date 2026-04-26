@@ -62,7 +62,7 @@ iron-spirit/
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/iron-spirit.git
+https://davila00007.github.io/iron-spirit/
 ```
 
 2. Abre la carpeta del proyecto en tu editor (VS Code recomendado)
