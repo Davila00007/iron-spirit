@@ -1,0 +1,1446 @@
+/*enlace cdn de Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'); /* Importa la librería de íconos Font Awesome desde CDN */
+
+/*Enlace CDN de fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); /* Importa las fuentes Montserrat y Roboto desde Google Fonts */
+
+
+
+:root{ /* Define variables globales reutilizables en todo el CSS */
+    --color-main:#ff0800; /* Color principal: */
+    --bg-main:#141418; /* color para fondo principales */
+    --white:white; /* Blanco suave para textos claros */
+    --tarjetas:#0000007a; /* color para fondos de tarjetas */
+    
+}
+
+*{ /* Aplica estilos base a TODOS los elementos de la página */
+    box-sizing: border-box; /* El padding y border se incluyen dentro del ancho/alto del elemento */
+    margin:0; padding: 0; /* Elimina márgenes y rellenos por defecto del navegador */
+    text-transform: capitalize; /* Pone en mayúscula la primera letra de cada palabra */
+    outline: none; /* Elimina el contorno al hacer foco en elementos */
+    border: none; /* Elimina bordes por defecto */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    transition: all .2s linear; /* Aplica una transición suave de 0.2s a cualquier cambio de estilo */
+    font-family: "Montserrat", sans-serif; /* Fuente principal del sitio */
+}
+
+
+
+html{
+    font-size:62.5%; /* Establece 1rem = 10px (facilita los cálculos de tamaño) */
+    overflow-x: hidden; /* Oculta el scroll horizontal para evitar desbordamientos */
+    scroll-padding-top: 6.5rem; /* Evita que el header fijo tape el contenido al hacer scroll con anclas */
+    scroll-behavior: smooth; /* Activa el desplazamiento suave al hacer clic en enlaces ancla */
+}
+
+body{
+    background-color: var(--bg-main); /* Fondo general de la página */
+}
+
+
+section{
+    margin:0 auto; /* Centra horizontalmente las secciones */
+    max-width: 1200px; /* Ancho máximo del contenido para pantallas grandes */
+    padding: 3rem 2rem; /* Espaciado interno vertical y horizontal */
+}
+
+.btn{
+    display: inline-block; /* Permite aplicar padding y margin como bloque pero en línea */
+    margin-top: 1rem; /* Separación superior del botón */
+    padding: 1rem 3rem; /* Relleno interno del botón */
+    font-size: 1.8rem; /* Tamaño del texto del botón */
+    color: var(--bg-main); /* Color de texto oscuro sobre fondo claro */
+    background-color: var(--white); /* Fondo blanco del botón */
+    text-align: center; /* Centra el texto dentro del botón */
+    cursor: pointer; /* Muestra el cursor de mano al pasar sobre el botón */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); /* Forma de paralelogramo inclinado a la derecha */
+}
+
+.btn:hover{
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%); /* Invierte la inclinación del paralelogramo al hacer hover */
+}
+
+.header{
+    position:fixed; /* Fija el header en la parte superior al hacer scroll */
+    top:0; /* Lo posiciona al tope de la ventana */
+    left: 0; /* Se extiende desde el borde izquierdo */
+    right: 0; /* Se extiende hasta el borde derecho */
+    z-index: 1000; /* Se superpone sobre todos los demás elementos */
+    box-shadow: var(--shadow); /* Agrega sombra para dar efecto de elevación */
+}
+
+.header::before{ /* Pseudo-elemento para crear el fondo con efecto vidrio del header */
+    content:''; /* Necesario para que el pseudo-elemento se muestre */
+    position:absolute; /* Se posiciona relativo al header */
+    top: 0; /* Cubre desde arriba */
+    left: 0; /* Cubre desde la izquierda */
+    right: 0; /* Cubre hasta la derecha */
+    bottom: 0; /* Cubre hasta abajo */
+    background-color: hsla(0,0%,100%,.1); /* Fondo blanco muy transparente */
+    backdrop-filter:blur(10px); /* Aplica desenfoque al contenido detrás del header (efecto glassmorphism) */
+}
+
+.header .flex{
+    position: relative; /* Permite que los hijos con position absolute se ubiquen respecto a este */
+    z-index: 1; /* Se muestra sobre el ::before del header */
+    display: flex; /* Activa el layout flexbox */
+    align-items: center; /* Centra verticalmente los elementos del header */
+    justify-content: space-between; /* Distribuye logo, nav y botón menú en los extremos */
+    padding: 2rem; /* Espaciado interno del header */
+}
+
+
+.header .flex .logo{
+    font-size: 1.8rem; /* Tamaño del texto del logo */
+}
+
+.header .flex .logo i{
+    margin-right: .5rem; /* Separación entre el ícono y el texto del logo */
+    color:var(--color-main); /* Color  para el ícono de mancuerna */
+}
+
+.header .flex .logo span{
+    color: var(--white); /* Color blanco para el nombre "Iron Spirit" */
+}
+
+
+.header .flex .navbar a {
+    margin-right: 2rem; /* Separación entre los enlaces de navegación */
+    font-size: 1.6rem; /* Tamaño del texto de los enlaces */
+    color: var(--white); /* Color blanco para los enlaces */
+}
+
+
+.header .flex .navbar a:hover{
+    color:var(--color-main); /* Cambia a color lima al pasar el mouse sobre un enlace */
+}
+
+
+#menu-btn{
+    font-size: 2rem; /* Tamaño del ícono del menú hamburguesa */
+    color: var(--white); /* Color blanco para el ícono */
+    display: none; /* Oculto por defecto, solo visible en móviles */
+}
+
+
+
+.home{
+    text-align: center; /* Centra el contenido de la sección hero */
+    position: relative; /* Necesario para posicionar los pseudo-elementos de las olas */
+    overflow: hidden; /* Oculta el desbordamiento de las olas animadas */
+    z-index: 0; /* Define el contexto de apilamiento base */
+}
+
+.home .flex{
+    padding-top: 8rem; /* Empuja el contenido hacia abajo para no quedar bajo el header fijo */
+    padding-bottom: 0; /* Sin padding inferior */
+}
+
+
+.home .flex h1{
+    font-size: 19vw; /* Tamaño gigante relativo al ancho del viewport */
+    color:transparent; /* Hace el texto transparente para mostrar el degradado */
+    background: linear-gradient(var(--color-main),transparent); /* Degradado hacia transparente */
+    background-clip: text; /* Recorta el fondo para que solo se vea dentro del texto */
+    position: relative; /* Permite usar z-index */
+    z-index: -1; /* Lo coloca detrás de la imagen del modelo */
+    margin-bottom: -9%; /* Sube la imagen para que se superponga al texto */
+    user-select: none; /* Evita que el usuario pueda seleccionar el texto decorativo */
+}
+
+.home .flex img{
+    width: 100%; /* La imagen ocupa todo el ancho disponible */
+    z-index: 1; /* Se muestra sobre el título h1 */
+}
+
+.home::before,
+.home::after{ /* Pseudo-elementos que crean las olas animadas al fondo de la sección */
+    content:''; /* Necesario para mostrar el pseudo-elemento */
+    position: absolute; /* Se posiciona relativo a .home */
+    bottom: 0; /* Pegadas al fondo de la sección */
+    left: 0; /* Desde el borde izquierdo */
+    width: 200%; /* El doble del ancho para que la animación sea fluida */
+    height: 15%; /* Altura de las olas */
+    background: url('img/wave.svg') repeat-x; /* Imagen SVG de ola repetida horizontalmente */
+    background-size: auto 100%; /* La ola ocupa el 100% de la altura del pseudo-elemento */
+}
+
+
+.home::before{
+    animation: wave 6s linear infinite alternate; /* Anima la primera ola de izquierda a derecha infinitamente */
+}
+
+
+.home::after{
+    animation: wave 5s linear infinite alternate-reverse; /* Anima la segunda ola en dirección contraria */
+    z-index: -1; /* La pone detrás de la primera ola */
+    opacity: .4; /* La hace más transparente para dar profundidad */
+}
+
+@keyframes wave{ /* Define la animación de movimiento de las olas */
+    0%{
+        background-position: 0; /* Posición inicial de la ola */
+    }
+    100%{
+        background-position: -100%; /* La ola se desplaza completamente hacia la izquierda */
+    }
+}
+
+.about .row{
+    display: flex; /* Activa flexbox para organizar columnas en la sección about */
+    flex-wrap: wrap-reverse; /* En pantallas pequeñas, las columnas se apilan en orden inverso */
+    gap: 2rem; /* Espacio entre las columnas */
+    align-items: center; /* Centra verticalmente las columnas */
+}
+
+.about .row .content{
+    flex:1 1 40rem; /* La columna de contenido crece, encoge y tiene base de 40rem */
+}
+
+.about .row .content h3{
+    font-size: 3rem; /* Tamaño del subtítulo de la sección about */
+    color: var(--color-main); /* Color lima para el subtítulo */
+}
+
+.about .row .content p{
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+    color: var(--white); /* Color  para el párrafo descriptivo */
+    font-size: 1.6rem; /* Tamaño del texto del párrafo */
+    padding: 1rem 0; /* Espaciado vertical del párrafo */
+}
+
+.about .row .content .box-container{
+    display: grid; /* Activa el layout de cuadrícula para las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); /* Columnas responsivas que se adaptan al ancho */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    margin-top: 2.5rem; /* Separación superior respecto al botón */
+}
+
+
+.about .row .content .box-container .box{
+    text-align: center; /* Centra el contenido de cada tarjeta */
+    border-radius: .5rem; /* Bordes redondeados en las tarjetas */
+    background-color: var(--tarjetas); /* Color para las tarjetas */
+    padding: 2rem; /* Relleno interno de cada tarjeta */
+}
+
+.about .row .content .box-container .box i{
+    font-size: 3rem; /* Tamaño del ícono dentro de la tarjeta */
+    color: var(--color-main); /* Color  para los íconos */
+}
+
+.about .row .content .box-container span{
+    display: block; /* Hace que el span ocupe su propia línea */
+    margin-top: 2rem; /* Separación entre el ícono y el texto */
+    font-size: 1.6rem; /* Tamaño del texto de la estadística */
+    color: var(--white); /* Color blanco para el texto */
+}
+
+.about .row .image{
+    flex:1 1 40rem; /* La columna de imágenes crece, encoge y tiene base de 40rem */
+    height: 50rem; /* Altura fija del contenedor de imágenes */
+    overflow: hidden; /* Oculta las imágenes que se desbordan durante la animación */
+    position: relative; /* Necesario para posicionar las imágenes absolutas dentro */
+}
+.about .row .image img{
+    position:absolute; /* Apila las imágenes una sobre otra en el mismo espacio */
+    top: 0; /* Desde el borde superior */
+    left: 0; /* Desde el borde izquierdo */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    object-fit: contain; /* Mantiene las proporciones de la imagen sin recortarla */
+    mask-image: linear-gradient(to bottom black 70%, transparent 100%); /* Desvanece la imagen hacia abajo */
+    opacity: 0; /* Oculta la imagen por defecto antes de que la animación la muestre */
+    animation: imgeSlide 6s ease-in-out infinite; /* Aplica la animación de aparición/desaparición cada 6s */
+}
+
+
+.about .row .image img:first-child{
+    animation-delay: 3s; /* Retrasa la primera imagen 3s para que alterne con la segunda */
+}
+
+@keyframes imgeSlide{ /* Define la animación de deslizamiento y aparición de las imágenes */
+    0%, 45%{
+        opacity: 1; /* La imagen es completamente visible */
+        transform: translateY(0); /* Sin desplazamiento vertical */
+    }
+    50%, 95%{
+        opacity: 0; /* La imagen es invisible */
+        transform: translateY(20%); /* Se desplaza hacia abajo al desaparecer */
+    }
+    100%{
+        opacity: 1; /* Vuelve a ser visible al reiniciar el ciclo */
+        transform: translateY(0); /* Regresa a su posición original */
+    }
+}
+
+
+#menu-btn.fa-xmark{
+    transform: rotate(180deg); /* Rota el ícono 180° cuando el menú está abierto (X en lugar de hamburguesa) */
+}
+
+
+@media(max-width:1200px){ /* Estilos para pantallas de hasta 1200px de ancho */
+
+    html{
+        font-size: 55%; /* Reduce el tamaño base de fuente para pantallas medianas */
+    }
+}
+
+
+
+@media(max-width:768px){ /* Estilos para pantallas de hasta 768px (tablets y móviles) */
+
+    #menu-btn{
+        display: inline-block; /* Muestra el botón hamburguesa en pantallas pequeñas */
+    }
+
+    .header .flex .navbar{
+        position: absolute; /* Saca el menú del flujo normal para que aparezca como dropdown */
+        top:100%; /* Lo posiciona justo debajo del header */
+        left: 0; /* Desde el borde izquierdo */
+        right: 0; /* Hasta el borde derecho */
+        background: hsla(0,0%,100%,.1); /* Fondo semitransparente para el menú desplegable */
+        backdrop-filter: blur(10px); /* Efecto glassmorphism en el menú móvil */
+        padding: .5rem 2rem; /* Espaciado interno del menú desplegable */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Oculta el menú con clip-path (altura 0 visual) */
+    }
+
+    .header .flex .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Muestra el menú completo cuando tiene la clase active */
+    }
+
+    .header .flex .navbar a{
+        display: block; /* Cada enlace ocupa su propia línea en el menú móvil */
+        margin: 1.5rem 0; /* Separación vertical entre los enlaces */
+        padding:1.5rem; /* Relleno interno para hacer el área de clic más grande */
+        border-radius: .5rem; /* Bordes redondeados en cada enlace */
+        background-color: hsla(0,0%,0%,.3); /* Fondo oscuro semitransparente para cada enlace */
+        color: var(--white); /* Color blanco para el texto de los enlaces */
+    }
+
+}
+
+
+@media(max-width:450px){ /* Estilos para pantallas muy pequeñas (móviles compactos) */
+
+    html{
+        font-size: 50%; /* Reduce aún más el tamaño base para pantallas muy pequeñas */
+    }
+}
+
+
+/* ============================================================
+   CARRUSEL — Iron Spirit
+   ============================================================ */
+
+.carousel-section{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.carousel-heading{
+    font-size: 3.5rem;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: .1rem;
+}
+
+.carousel-heading span{
+    color: var(--color-main);
+}
+
+.carousel-track-container{
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    background: #111;
+    cursor: grab;
+}
+
+.carousel-track-container:active{ cursor: grabbing; }
+
+.carousel-track{
+    display: flex;
+    height: 100%;
+    transition: transform .55s cubic-bezier(.77,0,.18,1);
+}
+
+.carousel-slide{
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.slide-bg{
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform .6s ease;
+}
+
+.carousel-slide:hover .slide-bg{ transform: scale(1.03); }
+
+.slide-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,20,24,.92) 0%, rgba(20,20,24,.3) 50%, transparent 100%);
+}
+
+.slide-content{
+    position: relative;
+    z-index: 2;
+    padding: 3rem 4rem;
+    color: var(--white);
+}
+
+.slide-tag{
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: 1.2rem;
+    letter-spacing: .18em;
+    background: var(--color-main);
+    color: var(--white);
+    padding: .4rem 1.2rem;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.slide-title{
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 700;
+    margin: 0 0 .8rem;
+    line-height: 1.12;
+    letter-spacing: -.02em;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.slide-sub{
+    font-size: 1.5rem;
+    color: rgba(255,255,255,.68);
+    margin: 0;
+}
+
+.carousel-progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--color-main);
+    width: 0%;
+    transition: width .1s linear;
+    z-index: 5;
+}
+
+.carousel-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    color: var(--white);
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.6rem;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-btn:hover{
+    background: var(--color-main);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev{ left: 1.6rem; }
+.carousel-next{ right: 1.6rem; }
+
+.carousel-dots{
+    display: flex;
+    justify-content: center;
+    gap: .8rem;
+    margin-top: 2rem;
+}
+
+.carousel-dot{
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,.25);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background .25s, transform .25s;
+}
+
+.carousel-dot.active{
+    background: var(--color-main);
+    transform: scale(1.45);
+}
+
+@media(max-width:768px){
+    .slide-content{ padding: 2rem 2.2rem; }
+    .carousel-btn{ width: 3.6rem; height: 3.6rem; font-size: 1.4rem; }
+    .slide-title{ font-size: 2.2rem; }
+}
+
+@media(max-width:450px){
+    .carousel-track-container{ aspect-ratio: 4 / 3; }
+    .carousel-heading{ font-size: 2.8rem; }
+}
+
+
+/* ============================================================
+   SERVICES — Iron Spirit
+   ============================================================ */
+
+.services{
+    padding: 5rem 2rem;
+}
+
+.services-heading{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.services-heading h2{
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.services-heading h2 span{
+    color: var(--color-main);
+}
+
+.services-heading p{
+    font-size: 1.6rem;
+    color: rgba(255,255,255,.55);
+}
+
+/* Grid de tarjetas */
+.services-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta individual */
+.service-card{
+    position: relative;
+    height: 32rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.service-card .service-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(20,20,24,.95) 0%,
+        rgba(20,20,24,.45) 50%,
+        rgba(20,20,24,.15) 100%
+    );
+    transition: background .4s ease;
+}
+
+.service-card:hover .service-overlay{
+    background: linear-gradient(
+        to top,
+        rgba(255,8,0,.88) 0%,
+        rgba(255,8,0,.35) 60%,
+        rgba(20,20,24,.1) 100%
+    );
+}
+
+.service-card .service-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem;
+    z-index: 2;
+    transition: transform .4s ease;
+}
+
+.service-card:hover .service-content{
+    transform: translateY(-.5rem);
+}
+
+.service-card .service-content i{
+    font-size: 3rem;
+    color: var(--color-main);
+    margin-bottom: 1rem;
+    display: block;
+    transition: color .3s;
+}
+
+.service-card:hover .service-content i{
+    color: var(--white);
+}
+
+.service-card .service-content h3{
+    font-size: 2.2rem;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: .8rem;
+    letter-spacing: .05rem;
+}
+
+.service-card .service-content p{
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.72);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .4s ease, opacity .4s ease;
+}
+
+.service-card:hover .service-content p{
+    max-height: 10rem;
+    opacity: 1;
+}
+
+/* Responsive services */
+@media(max-width:768px){
+    .services-grid{
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    }
+    .service-card{ height: 28rem; }
+}
+
+@media(max-width:450px){
+    .services-grid{
+        grid-template-columns: 1fr;
+    }
+    .service-card{ height: 25rem; }
+    .services-heading h2{ font-size: 2.8rem; }
+}
+
+
+
+
+
+/* ============================================================
+   ABOUT BANNER — reemplaza las imágenes alternantes
+   ============================================================ */
+
+.about .row .about-banner{
+    flex: 1 1 40rem;
+    height: 50rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    display: flex;
+    align-items: flex-end;
+}
+
+.about-banner-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(20,20,24,.95) 0%,
+        rgba(20,20,24,.4)  50%,
+        rgba(20,20,24,.1)  100%
+    );
+    transition: background .4s;
+}
+
+.about .row .about-banner:hover .about-banner-overlay{
+    background: linear-gradient(
+        to top,
+        rgba(255,8,0,.88)  0%,
+        rgba(255,8,0,.3)   55%,
+        rgba(20,20,24,.05) 100%
+    );
+}
+
+.about-banner-content{
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+}
+
+.about-banner-content h2{
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.about-banner-content p{
+    font-size: 1.5rem;
+    color: rgba(255,255,255,.72);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+@media(max-width:768px){
+    .about .row .about-banner{ height: 35rem; }
+    .about-banner-content h2{ font-size: 3rem; }
+}
+
+
+/* ============================================================
+   ABOUT BANNER FULL-WIDTH
+   ============================================================ */
+.about-banner-full { /* Contenedor principal del banner */
+    width: 100%; /* Hace el banner más ancho que su contenedor (puede generar overflow horizontal) */
+    height: 40rem; /* Altura fija del banner */
+    position: relative; /* Permite posicionar elementos hijos en relación a este contenedor */
+    background-size: cover; /* La imagen de fondo cubre todo el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    display: flex; /* Activa flexbox */
+    align-items: flex-end; /* Alinea el contenido al fondo verticalmente */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+.about-banner-full .about-banner-overlay { /* Capa oscura encima del fondo */
+    position: absolute; /* Se posiciona respecto al contenedor padre */
+    inset: 0; /* Ocupa todo el espacio (top, right, bottom, left = 0) */
+    background: linear-gradient( /* Degradado para oscurecer el fondo */
+        to right, /* Dirección del degradado de izquierda a derecha */
+        rgba(20,20,24,.92) 0%, /* Color oscuro al inicio */
+        rgba(20,20,24,.55) 45%, /* Transición intermedia */
+        rgba(20,20,24,.15) 100% /* Más transparente al final */
+    );
+}
+
+.about-banner-full .about-banner-content { /* Contenido visible encima del banner */
+    position: relative; /* Necesario para controlar el z-index */
+    z-index: 2; /* Coloca el contenido por encima del overlay */
+    padding: 4rem 5rem; /* Espaciado interno (vertical y horizontal) */
+    max-width: 1200px; /* Limita el ancho máximo */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.about-banner-full .about-banner-content h2 { /* Título principal */
+    font-size: clamp(3.5rem, 6vw, 7rem); /* Tamaño responsive entre 3.5rem y 7rem */
+    font-weight: 900; /* Grosor de letra muy alto */
+    color: var(--white); /* Color blanco usando variable */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: .05rem; /* Espaciado entre letras */
+    margin-bottom: 1rem; /* Separación inferior */
+    line-height: 1; /* Altura de línea compacta */
+}
+
+.about-banner-full .about-banner-content p { /* Texto descriptivo */
+    font-size: 1.6rem; /* Tamaño de fuente */
+    color: rgba(255,255,255,.75); /* Blanco con opacidad */
+    margin-bottom: 2.5rem; /* Espaciado inferior */
+    line-height: 1.6; /* Altura de línea más legible */
+}
+
+@media(max-width:768px) { /* Estilos para tablets y pantallas medianas */
+    .about-banner-full { height: 26rem; } /* Reduce la altura del banner */
+    .about-banner-full .about-banner-content { padding: 3rem 2rem; } /* Reduce el padding */
+    .about-banner-full .about-banner-content h2 { font-size: 3.5rem; } /* Reduce el tamaño del título */
+}
+
+@media(max-width:450px) { /* Estilos para móviles pequeños */
+    .about-banner-full { height: 22rem; } /* Altura aún más reducida */
+}
+
+
+
+/* ============================================================
+   PRODUCTOS — Iron Spirit
+   ============================================================ */
+ 
+.productos {
+    padding: 5rem 2rem;
+}
+ 
+.productos-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+ 
+.productos-heading h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+ 
+.productos-heading h2 span {
+    color: var(--color-main);
+}
+ 
+.productos-heading p {
+    font-size: 1.6rem;
+    color: rgba(255,255,255,.55);
+}
+ 
+/* Filtros */
+.productos-filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+ 
+.filtro-btn {
+    padding: .8rem 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 3rem;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.6);
+    cursor: pointer;
+    letter-spacing: .05rem;
+    transition: all .25s;
+}
+ 
+.filtro-btn:hover,
+.filtro-btn.active {
+    background: var(--color-main);
+    border-color: var(--color-main);
+    color: var(--white);
+}
+ 
+/* Grid */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    gap: 2.5rem;
+}
+ 
+/* Tarjeta */
+.producto-card {
+    background: var(--tarjetas);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+}
+ 
+.producto-card:hover {
+    transform: translateY(-.6rem);
+    box-shadow: 0 1.2rem 3rem rgba(255,8,0,.18);
+}
+ 
+/* Imagen */
+.producto-img {
+    height: 22rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform .4s;
+}
+ 
+.producto-card:hover .producto-img {
+    transform: scale(1.04);
+}
+ 
+.producto-badge {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background: var(--color-main);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: .3rem 1rem;
+    border-radius: 2rem;
+    letter-spacing: .08rem;
+    text-transform: uppercase;
+}
+ 
+/* Info */
+.producto-info {
+    padding: 2rem;
+}
+ 
+.producto-info h3 {
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+ 
+.producto-info p {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+}
+ 
+.producto-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+ 
+.producto-precio {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-main);
+}
+ 
+.producto-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .9rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: var(--color-main);
+    color: var(--white);
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+ 
+.producto-btn:hover {
+    background: #c40600;
+    transform: scale(1.05);
+}
+ 
+/* Tarjetas ocultas por filtro */
+.producto-card.hidden {
+    display: none;
+}
+ 
+@media(max-width:768px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
+}
+ 
+@media(max-width:450px) {
+    .productos-grid { grid-template-columns: 1fr; }
+    .productos-heading h2 { font-size: 2.8rem; }
+}
+
+
+
+
+
+/* ============================================================
+   PRICING — Iron Spirit
+   ============================================================ */
+ 
+.pricing {
+    padding: 5rem 2rem;
+}
+ 
+.pricing-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+ 
+.pricing-heading h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+ 
+.pricing-heading h2 span {
+    color: var(--color-main);
+}
+ 
+.pricing-heading p {
+    font-size: 1.6rem;
+    color: rgba(255,255,255,.55);
+}
+ 
+/* Toggle */
+.pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-bottom: 5rem;
+}
+ 
+.toggle-label {
+    font-size: 1.6rem;
+    color: rgba(255,255,255,.65);
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+ 
+.ahorro-badge {
+    font-size: 1.1rem;
+    background: var(--color-main);
+    color: var(--white);
+    padding: .2rem .8rem;
+    border-radius: 2rem;
+    font-weight: 700;
+}
+ 
+.toggle-switch {
+    position: relative;
+    width: 5.2rem;
+    height: 2.8rem;
+    cursor: pointer;
+}
+ 
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+ 
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,.15);
+    border-radius: 3rem;
+    transition: background .3s;
+}
+ 
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: .4rem;
+    top: .4rem;
+    background: var(--white);
+    border-radius: 50%;
+    transition: transform .3s;
+}
+ 
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--color-main);
+}
+ 
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(2.4rem);
+}
+ 
+/* Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+}
+ 
+/* Tarjeta */
+.pricing-card {
+    background: var(--tarjetas);
+    border-radius: 1.2rem;
+    padding: 3.5rem 3rem;
+    position: relative;
+    border: 2px solid transparent;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+ 
+.pricing-card:hover {
+    transform: translateY(-.5rem);
+    border-color: rgba(255,8,0,.3);
+}
+ 
+.pricing-card.featured {
+    border-color: var(--color-main);
+    transform: translateY(-1rem);
+    box-shadow: 0 1.5rem 4rem rgba(255,8,0,.25);
+}
+ 
+.pricing-card.featured:hover {
+    transform: translateY(-1.6rem);
+}
+ 
+.popular-badge {
+    position: absolute;
+    top: -1.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-main);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: .4rem 2rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+    letter-spacing: .05rem;
+}
+ 
+.pricing-card-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+ 
+.pricing-card-header i {
+    font-size: 3.5rem;
+    color: var(--color-main);
+    margin-bottom: 1rem;
+    display: block;
+}
+ 
+.pricing-card-header h3 {
+    font-size: 2.4rem;
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+}
+ 
+.pricing-card-header p {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.5);
+    line-height: 1.5;
+}
+ 
+/* Precio */
+.pricing-price {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+ 
+.price-amount {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--white);
+    transition: all .3s;
+}
+ 
+.price-period {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,.45);
+    margin-left: .4rem;
+}
+ 
+/* Features */
+.pricing-features {
+    list-style: none;
+    margin-bottom: 3rem;
+}
+ 
+.pricing-features li {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,.8);
+    padding: .9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+ 
+.pricing-features li i.fa-check {
+    color: var(--color-main);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+ 
+.pricing-features li.disabled {
+    color: rgba(255,255,255,.25);
+}
+ 
+.pricing-features li i.fa-xmark {
+    color: rgba(255,255,255,.2);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+ 
+/* Botón */
+.pricing-btn {
+    display: block;
+    text-align: center;
+    padding: 1.4rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: .6rem;
+    background: var(--color-main);
+    color: var(--white);
+    letter-spacing: .05rem;
+    transition: background .2s, transform .2s;
+    clip-path: none;
+}
+ 
+.pricing-btn:hover {
+    background: #c40600;
+    transform: scale(1.03);
+    clip-path: none;
+}
+ 
+@media(max-width:768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: translateY(0); }
+    .pricing-heading h2 { font-size: 2.8rem; }
+}
+
+
+
+
+
+
+
+/* ============================================================
+   CONTACT — Iron Spirit
+   ============================================================ */
+ 
+.contact {
+    padding: 5rem 2rem;
+}
+ 
+.contact-heading {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+ 
+.contact-heading h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+ 
+.contact-heading h2 span {
+    color: var(--color-main);
+}
+ 
+.contact-heading p {
+    font-size: 1.6rem;
+    color: rgba(255,255,255,.55);
+}
+ 
+/* Layout dos columnas */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+}
+ 
+/* Info blocks */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+ 
+.info-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.8rem;
+    background: var(--tarjetas);
+    padding: 2rem 2.4rem;
+    border-radius: .8rem;
+    border-left: 3px solid var(--color-main);
+    transition: transform .25s;
+}
+ 
+.info-block:hover {
+    transform: translateX(.5rem);
+}
+ 
+.info-block i {
+    font-size: 2.2rem;
+    color: var(--color-main);
+    margin-top: .2rem;
+    flex-shrink: 0;
+}
+ 
+.info-block h4 {
+    font-size: 1.5rem;
+    color: var(--color-main);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+}
+ 
+.info-block p {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.7);
+    line-height: 1.7;
+}
+ 
+/* Redes sociales */
+.contact-socials {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: .5rem;
+}
+ 
+.social-btn {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+    transition: transform .25s, opacity .25s;
+}
+ 
+.social-btn:hover {
+    transform: translateY(-.4rem);
+    opacity: .85;
+}
+ 
+.social-btn.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-btn.whatsapp  { background: #25d366; }
+.social-btn.facebook  { background: #1877f2; }
+ 
+/* Formulario */
+.contact-form-wrapper {
+    background: var(--tarjetas);
+    border-radius: 1.2rem;
+    padding: 3.5rem;
+}
+ 
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+ 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+ 
+.form-group label {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.7);
+    font-weight: 600;
+    letter-spacing: .05rem;
+}
+ 
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(255,255,255,.06);
+    border: 1.5px solid rgba(255,255,255,.12);
+    border-radius: .6rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    font-family: "Montserrat", sans-serif;
+    transition: border-color .25s, background .25s;
+    resize: none;
+}
+ 
+.form-group select option {
+    background: #1e1e22;
+    color: var(--white);
+}
+ 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,.3);
+}
+ 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-main);
+    background: rgba(255,8,0,.06);
+    outline: none;
+}
+ 
+/* Botón enviar */
+.contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: 1.4rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: var(--color-main);
+    color: var(--white);
+    border: none;
+    border-radius: .6rem;
+    cursor: pointer;
+    letter-spacing: .05rem;
+    transition: background .2s, transform .2s;
+    font-family: "Montserrat", sans-serif;
+}
+ 
+.contact-submit:hover {
+    background: #c40600;
+    transform: scale(1.03);
+}
+ 
+/* Mensaje de éxito */
+.form-success {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: #4ade80;
+    background: rgba(74,222,128,.1);
+    border: 1px solid rgba(74,222,128,.3);
+    padding: 1.2rem 1.8rem;
+    border-radius: .6rem;
+}
+ 
+.form-success i {
+    font-size: 2rem;
+}
+ 
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+ 
+.footer p {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.4);
+}
+ 
+.footer p span {
+    color: var(--color-main);
+    font-weight: 700;
+}
+ 
+.footer p i {
+    color: var(--color-main);
+}
+ 
+/* Responsive */
+@media(max-width:900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+ 
+@media(max-width:450px) {
+    .contact-heading h2 { font-size: 2.8rem; }
+    .contact-form-wrapper { padding: 2.5rem 2rem; }
+}

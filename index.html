@@ -1,0 +1,597 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head> <!-- Abre la sección de metadatos del documento -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 (soporta tildes y ñ) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsive en dispositivos móviles -->
+    <title>Iron Spirit</title> <!-- Define el título que aparece en la pestaña del navegador -->
+
+    <!--link de css -->
+    <link rel="stylesheet" href="style.css"> <!-- Enlaza el archivo de estilos CSS externo -->
+
+</head> <!-- Cierra la sección de metadatos -->
+<body> <!-- Abre el cuerpo del documento, aquí va todo el contenido visible -->
+
+
+<!--la sección del encabezado empieza-->
+<header class="header"> <!-- Abre el encabezado de la página con clase "header" para estilos -->
+
+
+    <section class="flex"> <!-- Sección con clase "flex" para alinear sus elementos con flexbox -->
+        <a href="#" class="logo"><i class="fas fa-dumbbell"></i><span>Iron Spirit</span></a> <!-- Logo: enlace con ícono de mancuerna y nombre del gimnasio -->
+
+<nav class="navbar">
+    <a href="#home">Inicio</a>
+    <a href="#galeria">Instalaciones</a>
+    <a href="#services">Servicios</a>
+    <a href="#Productos">Productos</a>
+    <a href="#pricing">Precios</a>
+    <a href="#contact">Contáctanos</a>
+</nav>
+
+        <div id="menu-btn" class="fas fa-bars-staggered"></div> <!-- Botón de menú hamburguesa para móviles (ícono de Font Awesome) -->
+
+    </section> <!-- Cierra la sección flex del header -->
+
+</header> <!-- Cierra el encabezado -->
+<!--la sección del encabezado termina-->
+
+
+
+<!--Sección de inicio comienza-->
+<div class="home" id="home"> <!-- Contenedor principal de la sección hero/inicio -->
+
+    <section class="flex"> <!-- Sección con flexbox para centrar su contenido -->
+
+        <h1>FITNESS</h1> <!-- Título principal grande de la sección de inicio -->
+        <img src="img/atlas.png" alt=""> <!-- Imagen principal del héroe (personaje Atlas) -->
+
+    </section> <!-- Cierra la sección flex -->
+</div> <!-- Cierra el contenedor home -->
+<!--Sección de inicio termina-->
+
+
+<!-- la sección acerca  comienza -->
+
+<!-- Banner full-width — reemplaza la URL con tu foto: url('img/gym-banner.jpg') -->
+<div class="about-banner-full" id="about" style="background-image: url('img/Gym.jpg');">
+    <div class="about-banner-overlay"></div>
+    <div class="about-banner-content">
+        <h2>Iron Spirit</h2>
+        <p>Entrena en instalaciones de élite. Aquí cada rep cuenta.</p>
+        <a href="#services" class="btn">Explorar</a>
+    </div>
+</div>
+
+<!-- la sección acerca  termina -->
+
+
+<!-- carrusel  -->
+<section class="carousel-section" id="galeria">
+
+  <h2 class="carousel-heading">Nuestras <span>Instalaciones</span></h2>
+
+  <div class="carousel-track-container" id="carouselBox">
+    <div class="carousel-track" id="carouselTrack">
+
+    <!-- SLIDE 1 -->
+      <div class="carousel-slide">
+        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag"><i class="fas fa-dumbbell"></i> Entrenamiento</span>
+          <h3 class="slide-title">Supera tus límites</h3>
+          <p class="slide-sub">Zona de pesas y cardio equipada al máximo nivel</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="carousel-slide">
+        <div class="slide-bg" style="background-image: url('img/Clases\ grupales.jpg');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag"><i class="fas fa-users"></i> Clases grupales</span>
+          <h3 class="slide-title">Energía colectiva</h3>
+          <p class="slide-sub">Spinning, CrossFit y más — horarios flexibles para ti</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="carousel-slide">
+        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag"><i class="fas fa-trophy"></i> Resultados</span>
+          <h3 class="slide-title">Tu transformación empieza aquí</h3>
+          <p class="slide-sub">Entrenadores certificados listos para guiarte</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="carousel-slide">
+        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1200&q=80');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag"><i class="fas fa-star"></i> Instalaciones</span>
+          <h3 class="slide-title">Espacios de élite</h3>
+          <p class="slide-sub">Vestuarios modernos, sauna y zona de recuperación</p>
+        </div>
+      </div>
+
+    </div><!-- fin track -->
+
+    <!-- Barra de progreso -->
+    <div class="carousel-progress" id="carouselProgress"></div>
+
+    <!-- Flechas -->
+    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Siguiente">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div><!-- fin track-container -->
+
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots"></div>
+
+</section>
+<!-- carrusel -->
+
+
+
+
+
+
+<!-- Sección services comienza -->
+<section class="services" id="services">
+
+    <div class="services-heading">
+        <h2>Nuestros <span>Servicios</span></h2>
+        <p>Todo lo que necesitas para alcanzar tu mejor versión</p>
+    </div>
+
+    <div class="services-grid">
+
+        <!-- Tarjeta 1 — Musculación -->
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Musculación</h3>
+                <p>Equipos de última generación para trabajar cada grupo muscular</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 — Cardio -->
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=800&q=80');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Cardio</h3>
+                <p>Cintas, bicicletas y elípticas para quemar calorías al máximo</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 — Crossfit -->
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?w=800&q=80');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-fire"></i>
+                <h3>Crossfit</h3>
+                <p>Entrenamientos de alta intensidad que desafían tus límites</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 — Yoga -->
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-spa"></i>
+                <h3>Yoga</h3>
+                <p>Equilibrio, flexibilidad y paz mental en cada sesión</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 — Boxeo -->
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-hand-fist"></i>
+                <h3>Boxeo</h3>
+                <p>Técnica, fuerza y disciplina de la mano de entrenadores expertos</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 6 — Lockers-->
+        <div class="service-card" style="background-image: url('img/lockers.jpg');">
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <i class="fas fa-lock"></i>
+                <h3>Lockers</h3>
+                <p>Casilleros seguros para guardar pertenencias durante el entrenamiento.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Sección services termina -->
+
+
+
+
+<!-- Sección productos comienza -->
+<section class="productos" id="Productos">
+ 
+    <div class="productos-heading">
+        <h2>Nuestra <span>Tienda</span></h2>
+        <p>Suplementos, ropa y equipos para llevar tu entrenamiento al siguiente nivel</p>
+    </div>
+ 
+    <div class="productos-filtros">
+        <button class="filtro-btn active" data-filter="all">Todos</button>
+        <button class="filtro-btn" data-filter="suplementos">Suplementos</button>
+        <button class="filtro-btn" data-filter="ropa">Ropa</button>
+        <button class="filtro-btn" data-filter="equipos">Equipos</button>
+    </div>
+ 
+    <div class="productos-grid" id="productosGrid">
+ 
+        <div class="producto-card" data-category="suplementos">
+            <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80');">
+                <span class="producto-badge">Suplementos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Proteína Whey 2kg</h3>
+                <p>Alta absorción, 25g de proteína por porción. Sabor chocolate.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$85.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="suplementos">
+            <div class="producto-img" style="background-image: url('img/Creatina\ Monohidrato.jpg');">
+                <span class="producto-badge">Suplementos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Creatina Monohidrato</h3>
+                <p>300g de creatina pura para potenciar tu fuerza y rendimiento.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$45.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="suplementos">
+            <div class="producto-img" style="background-image: url('img/pre\ entreno.jpg');">
+                <span class="producto-badge">Suplementos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Pre-Entreno</h3>
+                <p>Energía explosiva, enfoque y resistencia en cada sesión.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$55.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="ropa">
+            <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80');">
+                <span class="producto-badge">Ropa</span>
+            </div>
+            <div class="producto-info">
+                <h3>Camiseta Iron Spirit</h3>
+                <p>Tela transpirable y corte ergonómico. Disponible en S, M, L, XL.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$38.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="ropa">
+            <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80');">
+                <span class="producto-badge">Ropa</span>
+            </div>
+            <div class="producto-info">
+                <h3>Shorts de Entrenamiento</h3>
+                <p>Ligeros, flexibles y con bolsillos laterales. Colores negro y rojo.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$42.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="ropa">
+            <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80');">
+                <span class="producto-badge">Ropa</span>
+            </div>
+            <div class="producto-info">
+                <h3>Zapatillas Gym Pro</h3>
+                <p>Suela antideslizante y soporte para entrenamiento de fuerza.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$180.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="equipos">
+            <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&q=80');">
+                <span class="producto-badge">Equipos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Guantes de Boxeo</h3>
+                <p>Cuero sintético de alta resistencia. 12 oz ideales para sparring.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$75.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="equipos">
+            <div class="producto-img" style="background-image: url('img/Mancuernas.jpg');">
+                <span class="producto-badge">Equipos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Mancuernas 25kg par</h3>
+                <p>Recubiertas en goma antideslizante. Ideales para casa.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$120.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="producto-card" data-category="equipos">
+            <div class="producto-img" style="background-image: url('img/Banda\ de\ Resistencia\ Kit.jpg');">
+                <span class="producto-badge">Equipos</span>
+            </div>
+            <div class="producto-info">
+                <h3>Banda de Resistencia Kit</h3>
+                <p>Set de 3 bandas con niveles de resistencia del 1 al 3. Incluye bolsa.</p>
+                <div class="producto-footer">
+                    <span class="producto-precio">$35.000</span>
+                    <button class="producto-btn"><i class="fas fa-cart-shopping"></i> Comprar</button>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ 
+</section>
+<!-- Sección productos termina -->
+
+
+<!-- Sección pricing comienza -->
+<section class="pricing" id="pricing">
+ 
+    <div class="pricing-heading">
+        <h2>Planes de <span>Membresía</span></h2>
+        <p>Elige el plan que mejor se adapta a tus objetivos</p>
+    </div>
+ 
+    <!-- Toggle mensual / anual -->
+    <div class="pricing-toggle">
+        <span class="toggle-label" id="labelMensual">Mensual</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="toggleAnual">
+            <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label" id="labelAnual">Anual <span class="ahorro-badge">Ahorra 20%</span></span>
+    </div>
+ 
+    <div class="pricing-grid">
+ 
+        <!-- Plan Básico -->
+        <div class="pricing-card">
+            <div class="pricing-card-header">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Básico</h3>
+                <p>Perfecto para comenzar tu transformación</p>
+            </div>
+            <div class="pricing-price">
+                <span class="price-amount"
+                      data-mensual="79.900"
+                      data-anual="63.900">$79.900</span>
+                <span class="price-period">/ mes</span>
+            </div>
+            <ul class="pricing-features">
+                <li><i class="fas fa-check"></i> Acceso a sala de pesas</li>
+                <li><i class="fas fa-check"></i> Área de cardio</li>
+                <li><i class="fas fa-check"></i> Duchas y vestuarios</li>
+                <li><i class="fas fa-check"></i> Horario estándar (6am – 8pm)</li>
+                <li class="disabled"><i class="fas fa-xmark"></i> Clases grupales</li>
+                <li class="disabled"><i class="fas fa-xmark"></i> Entrenador personal</li>
+                <li class="disabled"><i class="fas fa-xmark"></i> Plan nutricional</li>
+            </ul>
+            <a href="#contact" class="pricing-btn">Empezar ahora</a>
+        </div>
+ 
+        <!-- Plan Pro — destacado -->
+        <div class="pricing-card featured">
+            <div class="popular-badge">Más popular</div>
+            <div class="pricing-card-header">
+                <i class="fas fa-fire"></i>
+                <h3>Pro</h3>
+                <p>El equilibrio ideal entre precio y beneficios</p>
+            </div>
+            <div class="pricing-price">
+                <span class="price-amount"
+                      data-mensual="129.900"
+                      data-anual="103.900">$129.900</span>
+                <span class="price-period">/ mes</span>
+            </div>
+            <ul class="pricing-features">
+                <li><i class="fas fa-check"></i> Todo lo del plan Básico</li>
+                <li><i class="fas fa-check"></i> Clases grupales ilimitadas</li>
+                <li><i class="fas fa-check"></i> Acceso 24/7</li>
+                <li><i class="fas fa-check"></i> Evaluación física mensual</li>
+                <li><i class="fas fa-check"></i> 2 sesiones con entrenador</li>
+                <li class="disabled"><i class="fas fa-xmark"></i> Plan nutricional</li>
+                <li class="disabled"><i class="fas fa-xmark"></i> Entrenador personal dedicado</li>
+            </ul>
+            <a href="#contact" class="pricing-btn">Empezar ahora</a>
+        </div>
+ 
+        <!-- Plan Elite -->
+        <div class="pricing-card">
+            <div class="pricing-card-header">
+                <i class="fas fa-trophy"></i>
+                <h3>Elite</h3>
+                <p>La experiencia completa sin límites</p>
+            </div>
+            <div class="pricing-price">
+                <span class="price-amount"
+                      data-mensual="199.900"
+                      data-anual="159.900">$199.900</span>
+                <span class="price-period">/ mes</span>
+            </div>
+            <ul class="pricing-features">
+                <li><i class="fas fa-check"></i> Todo lo del plan Pro</li>
+                <li><i class="fas fa-check"></i> Entrenador personal dedicado</li>
+                <li><i class="fas fa-check"></i> Plan nutricional personalizado</li>
+                <li><i class="fas fa-check"></i> Acceso a sauna y spa</li>
+                <li><i class="fas fa-check"></i> Descuento 15% en tienda</li>
+                <li><i class="fas fa-check"></i> Invitado gratis 1 vez/mes</li>
+                <li><i class="fas fa-check"></i> Soporte prioritario</li>
+            </ul>
+            <a href="#contact" class="pricing-btn">Empezar ahora</a>
+        </div>
+ 
+    </div>
+ 
+</section>
+<!-- Sección pricing termina -->
+
+
+
+
+
+<!-- Sección contact comienza -->
+<section class="contact" id="contact">
+ 
+    <div class="contact-heading">
+        <h2>Contác<span>tanos</span></h2>
+        <p>¿Tienes alguna pregunta? Escríbenos y te respondemos a la brevedad</p>
+    </div>
+ 
+    <div class="contact-container">
+ 
+        <!-- Columna izquierda: datos + redes -->
+        <div class="contact-info">
+ 
+            <div class="info-block">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <h4>Dirección</h4>
+                    <!-- Cambia por tu dirección real -->
+                    <p>Calle 45 #32-10, Medellín, Colombia</p>
+                </div>
+            </div>
+ 
+            <div class="info-block">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Teléfono</h4>
+                    <!-- Cambia por tu número real -->
+                    <p>+57 300 123 4567</p>
+                </div>
+            </div>
+ 
+            <div class="info-block">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <!-- Cambia por tu email real -->
+                    <p>contacto@ironspirit.com</p>
+                </div>
+            </div>
+ 
+            <div class="info-block">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h4>Horarios</h4>
+                    <p>Lunes a Viernes: 5:00am – 10:00pm</p>
+                    <p>Sábados: 6:00am – 8:00pm</p>
+                    <p>Domingos: 8:00am – 2:00pm</p>
+                </div>
+            </div>
+ 
+            <!-- Redes sociales -->
+            <div class="contact-socials">
+                <!-- Cambia los href por tus links reales -->
+                <a href="https://www.instagram.com/michaeldavila3407?utm_source=qr&igsh=MWdlOWluNzVxcTg1bg==" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/573001234567" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-btn facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+ 
+        </div>
+ 
+        <!-- Columna derecha: formulario -->
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+ 
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre" required>
+                </div>
+ 
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tucorreo@email.com" required>
+                </div>
+ 
+                <div class="form-group">
+                    <label for="asunto">Asunto</label>
+                    <select id="asunto">
+                        <option value="">Selecciona un asunto</option>
+                        <option value="membresia">Membresía</option>
+                        <option value="productos">Productos</option>
+                        <option value="entrenador">Entrenador personal</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+ 
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                </div>
+ 
+                <button type="submit" class="contact-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar mensaje
+                </button>
+ 
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-circle-check"></i> ¡Mensaje enviado! Te contactaremos pronto.
+                </div>
+ 
+            </form>
+        </div>
+ 
+    </div>
+ 
+</section>
+<!-- Sección contact termina -->
+
+
+
+
+
+
+<script src="javascript.js"></script> <!-- Enlaza el archivo JavaScript externo al final del body para mejor rendimiento -->
+</body> <!-- Cierra el cuerpo del documento -->
+</html> <!-- Cierra el documento HTML -->
