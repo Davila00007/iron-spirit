@@ -2,14 +2,6 @@
 
 Proyecto de sitio web completo para un gimnasio, desarrollado con **HTML, CSS y JavaScript puro** como parte de mi aprendizaje en desarrollo web.
 
----
-
-## 🚀 Demo en vivo
-
-> Próximamente en GitHub Pages
-
----
-
 ## 📸 Vista general
 
 Sitio web moderno, oscuro y responsive para el gimnasio **Iron Spirit**, con diseño profesional, animaciones y secciones interactivas.
@@ -18,12 +10,13 @@ Sitio web moderno, oscuro y responsive para el gimnasio **Iron Spirit**, con dis
 
 ## 🛠️ Tecnologías utilizadas
 
-**Tecnología**       **Uso**
-HTML5                Estructura y contenido
-CSS3                 Estilos, animaciones y responsive design
-JavaScript           Interactividad y funcionalidades dinámicas
-Font Awesome 6       Íconos -(https://fontawesome.com/)
-Google Fonts         Tipografía (Montserrat)- (https://fonts.google.com/)
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura y contenido |
+| CSS3 | Estilos, animaciones y responsive design |
+| JavaScript (Vanilla) | Interactividad y funcionalidades dinámicas |
+| Font Awesome 6 | Íconos |
+| Google Fonts | Tipografía (Montserrat) |
 
 
 ## 📂 Estructura del proyecto
